@@ -32,3 +32,15 @@ Input: s = "([])"
 
 Output: true
 '''
+class Solution:
+    def isValid(self, s: str) -> bool:
+        dictParenClosed = {')':'(', ']':'[', '}':'{'}
+        stack = []
+        for c in s:
+            if c not in dictParenClosed:
+                stack.append(c)
+                continue
+            if not stack or dictParenClosed[c]!= stack[-1]:
+                return False
+            stack.pop()
+        return not stack
