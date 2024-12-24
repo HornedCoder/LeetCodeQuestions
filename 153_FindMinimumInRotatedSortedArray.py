@@ -34,7 +34,7 @@ class Solution:
             if nums[m] > nums[m+1]:
                 return nums[m+1]
             #IF mid is greater than leftmost element then smallest must be in second half
-            elif nums[m] > nums[0]:
+            elif nums[m] > nums[l]:
                l = m
             #otherwise in first half.
             else:
