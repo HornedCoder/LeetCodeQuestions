@@ -16,3 +16,26 @@ Example 3:
 Input: nums = [1]
 Output: [[1]]
 '''
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        res = []
+
+        def backtrack(curr, remaining):
+
+            if not remaining:
+                res.append(curr.copy())
+                return
+
+            for i in range(len(remaining)):
+
+                curr.append(remaining[i])
+
+                newRemaining = remaining[:i] + remaining[i+1:]
+
+                backtrack(curr, newRemaining)
+
+                curr.pop()
+
+        backtrack([],nums)
+        return res
